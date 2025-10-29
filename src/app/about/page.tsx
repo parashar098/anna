@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -79,22 +80,24 @@ export default function AboutPage() {
       {/* Team Section */}
       <section className="text-center mb-20">
         <h2 className="text-3xl md:text-4xl font-bold font-headline mb-12">Meet Our Team</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map((member) => (
-            <div key={member.name} className="flex flex-col items-center">
-              {member.image && (
-                <Image
-                  src={member.image.imageUrl}
-                  alt={`Portrait of ${member.name}`}
-                  width={150}
-                  height={150}
-                  className="rounded-full object-cover mb-4 shadow-md"
-                  data-ai-hint={member.image.imageHint}
-                />
-              )}
-              <h3 className="font-semibold text-lg">{member.name}</h3>
-              <p className="text-sm text-muted-foreground">{member.role}</p>
-            </div>
+            <Card key={member.name} className="overflow-hidden text-center transition-shadow hover:shadow-xl">
+              <CardContent className="p-6">
+                {member.image && (
+                  <Image
+                    src={member.image.imageUrl}
+                    alt={`Portrait of ${member.name}`}
+                    width={150}
+                    height={150}
+                    className="rounded-full object-cover mb-4 shadow-md mx-auto"
+                    data-ai-hint={member.image.imageHint}
+                  />
+                )}
+                <h3 className="font-semibold text-lg mt-4">{member.name}</h3>
+                <p className="text-sm text-muted-foreground">{member.role}</p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </section>
