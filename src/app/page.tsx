@@ -4,9 +4,10 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { HandHelping, Heart, Users, Truck, Leaf, ShieldCheck, Map, ArrowRight } from 'lucide-react';
+import { HandHelping, Heart, Users, Truck, Leaf, ShieldCheck, Map, ArrowRight, Mail, Phone, MapPin } from 'lucide-react';
 import { Footer } from '@/components/layout/footer';
 import { blogPosts } from '@/app/blog/data';
+import { ContactForm } from './contact/_components/contact-form';
 
 const partnerImages = [
   PlaceHolderImages.find(p => p.id === 'partner-1'),
@@ -56,6 +57,8 @@ const whyChooseUsPoints = [
         description: "Receive certificates for your contributions and track your impact.",
     },
 ]
+
+const mapImage = PlaceHolderImages.find(p => p.id === 'contact-map');
 
 export default function Home() {
   const latestPosts = blogPosts.slice(0, 3);
@@ -227,7 +230,7 @@ export default function Home() {
              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
               {partnerImages.map((logo, index) =>
                 logo ? (
-                  <Card key={index} className="bg-card/80 p-6 flex items-center justify-center shadow-sm hover:shadow-lg transition-shadow">
+                  <Card key={index} className="bg-card p-6 flex items-center justify-center shadow-sm hover:shadow-lg transition-shadow">
                     <Image
                       src={logo.imageUrl}
                       alt={logo.description}
@@ -239,6 +242,63 @@ export default function Home() {
                   </Card>
                 ) : null
               )}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="py-16 md:py-24 bg-secondary/50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold font-headline mb-4">Get In Touch</h2>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+                Have questions or want to partner with us? We'd love to hear from you.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-5 gap-12">
+              <div className="md:col-span-3">
+                <ContactForm />
+              </div>
+              <div className="md:col-span-2 space-y-8">
+                <div className="p-6 bg-card rounded-2xl shadow-sm">
+                  <h3 className="text-2xl font-semibold font-headline mb-6">Contact Information</h3>
+                  <div className="space-y-4 text-muted-foreground">
+                    <div className="flex items-start gap-4">
+                      <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-foreground">Our Headquarters</h4>
+                        <p>123 Green Way, Sustainability City, 12345</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <Mail className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-foreground">Email Us</h4>
+                        <p>contact@annasewa.org</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <Phone className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-foreground">Call Us</h4>
+                        <p>+1 (234) 567-890</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {mapImage && (
+                  <div className="rounded-2xl overflow-hidden shadow-lg">
+                    <Image
+                      src={mapImage.imageUrl}
+                      alt={mapImage.description}
+                      width={800}
+                      height={500}
+                      className="w-full object-cover"
+                      data-ai-hint={mapImage.imageHint}
+                    />
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </section>
