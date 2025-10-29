@@ -21,27 +21,14 @@ const locations = [
   { lat: 19.0720, lng: 72.8827 },
 ];
 
-const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
+// Using an empty string for the API key for demo purposes
+const apiKey = '';
 
 export default function MapView() {
     const { isLoaded, loadError } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: apiKey,
     });
-
-    if (!apiKey) {
-      return (
-        <div className="w-full h-full bg-muted flex items-center justify-center p-4">
-          <Alert variant="destructive" className="max-w-md">
-            <MapPin className="h-4 w-4" />
-            <AlertTitle>Google Maps API Key is Missing</AlertTitle>
-            <AlertDescription>
-              To display the map, please get an API key from the Google Cloud Console and add it as `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` to your `.env` file.
-            </AlertDescription>
-          </Alert>
-        </div>
-      );
-    }
 
     if (loadError) {
         return (
@@ -50,7 +37,7 @@ export default function MapView() {
               <MapPin className="h-4 w-4" />
               <AlertTitle>Map Loading Error</AlertTitle>
               <AlertDescription>
-                There was an error loading Google Maps. Please check your API key and ensure the "Maps JavaScript API" is enabled in your Google Cloud project.
+                There was an error loading the map. For full functionality, ensure a valid Google Maps API key is provided.
               </AlertDescription>
             </Alert>
           </div>
