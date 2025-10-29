@@ -7,6 +7,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle, Truck, MapPin } from 'lucide-react';
 import MapView from '@/components/map-view';
+import { useToast } from '@/hooks/use-toast';
 
 const nearbyDonations = [
   { id: 1, type: 'Groceries', from: 'City Supermarket', status: 'Available' },
@@ -21,6 +22,15 @@ const deliveryHistory = [
 ];
 
 export default function NGOPage() {
+    const { toast } = useToast();
+
+    const handleRegistration = () => {
+        toast({
+            title: "Registration Submitted!",
+            description: "Your NGO registration has been submitted for verification. We will get back to you soon.",
+        });
+    };
+
     return (
         <div className="container mx-auto px-4 py-12 md:py-20">
             <div className="grid lg:grid-cols-5 gap-12">
@@ -88,7 +98,7 @@ export default function NGOPage() {
                                     <Label htmlFor="address">Address</Label>
                                     <Input id="address" placeholder="Your NGO's address" />
                                 </div>
-                                <Button className="w-full rounded-full bg-accent text-accent-foreground hover:bg-accent/90">Submit for Verification</Button>
+                                <Button className="w-full rounded-full bg-accent text-accent-foreground hover:bg-accent/90" onClick={handleRegistration}>Submit for Verification</Button>
                             </CardContent>
                         </Card>
                     </section>
@@ -123,3 +133,5 @@ export default function NGOPage() {
         </div>
     );
 }
+
+    

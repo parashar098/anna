@@ -36,7 +36,6 @@ const formSchema = z.object({
   image: z.any().optional(),
 })
 
-const heroImage = PlaceHolderImages.find(p => p.id === 'hero-bg');
 const storyImage = PlaceHolderImages.find(p => p.id === 'story-2');
 
 export default function DonateFoodPage() {
@@ -235,3 +234,5 @@ export default function DonateFoodPage() {
     </div>
   );
 }
+
+    
