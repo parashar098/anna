@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Bell } from 'lucide-react';
 import { Logo } from '@/components/icons';
 import { cn } from '@/lib/utils';
 
@@ -47,7 +47,11 @@ export function Navbar() {
           </nav>
         </div>
 
-        <div className="flex flex-1 items-center justify-end space-x-4">
+        <div className="flex flex-1 items-center justify-end space-x-2">
+          <Button variant="ghost" size="icon" className="hidden md:inline-flex rounded-full">
+            <Bell className="h-5 w-5" />
+            <span className="sr-only">Notifications</span>
+          </Button>
           <Button asChild className="hidden md:inline-flex rounded-full" variant="ghost">
             <Link href="/login">Login</Link>
           </Button>
