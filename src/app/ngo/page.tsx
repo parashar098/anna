@@ -31,6 +31,16 @@ export default function NGOPage() {
         });
     };
 
+    const handleRequestPickup = (donationId: number) => {
+        const donation = nearbyDonations.find(d => d.id === donationId);
+        if (donation) {
+            toast({
+                title: "Pickup Requested!",
+                description: `You have requested a pickup for ${donation.type} from ${donation.from}.`,
+            });
+        }
+    };
+
     return (
         <div className="container mx-auto px-4 py-12 md:py-20">
             <div className="grid lg:grid-cols-5 gap-12">
@@ -118,7 +128,7 @@ export default function NGOPage() {
                                             <p className="font-semibold">{donation.type}</p>
                                             <p className="text-sm text-muted-foreground flex items-center gap-1"><MapPin className="h-3 w-3" />{donation.from}</p>
                                         </div>
-                                        <Button size="sm" className="rounded-full">
+                                        <Button size="sm" className="rounded-full" onClick={() => handleRequestPickup(donation.id)}>
                                             <Truck className="h-4 w-4 mr-2" />
                                             Request
                                         </Button>
@@ -133,5 +143,3 @@ export default function NGOPage() {
         </div>
     );
 }
-
-    
