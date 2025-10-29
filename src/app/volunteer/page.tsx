@@ -8,6 +8,8 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/
 import { Badge } from '@/components/ui/badge';
 import MapView from '@/components/map-view';
 import { MapPin, Route, Star } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+
 
 const donations = [
     { id: 1, foodType: 'Prepared Meals', quantity: '25 meals', from: 'Green Leaf Cafe', distance: '2.5 km' },
@@ -28,6 +30,17 @@ const chartConfig = {
 }
 
 export default function VolunteerPage() {
+    const { toast } = useToast();
+
+    const handleAcceptPickup = (donationId: number) => {
+        const donation = donations.find(d => d.id === donationId);
+        if (donation) {
+            toast({
+                title: "Pickup Accepted!",
+                description: `You have accepted the pickup for ${donation.quantity} of ${donation.foodType} from ${donation.from}.`,
+            });
+        }
+    };
     return (
         <div className="container mx-auto px-4 py-12 md:py-20">
             <div className="grid lg:grid-cols-3 gap-12">
@@ -49,7 +62,7 @@ export default function VolunteerPage() {
                                                 <MapPin className="h-4 w-4" />
                                                 <span>{donation.distance} away</span>
                                             </div>
-                                            <Button className="rounded-full bg-primary/90 hover:bg-primary">
+                                            <Button className="rounded-full bg-primary/90 hover:bg-primary" onClick={() => handleAcceptPickup(donation.id)}>
                                                 <Route className="mr-2 h-4 w-4"/>
                                                 Accept Pickup
                                             </Button>
