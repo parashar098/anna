@@ -102,12 +102,12 @@ export default function ReportsPage() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                         {['Q1_Donation_Summary.pdf', 'May_Volunteer_Activity.csv', '2023_Impact_Report.pdf'].map(report => (
-                            <div key={report} className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg">
+                            <div key={report} className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 bg-secondary/50 rounded-lg gap-2">
                                 <div className="flex items-center gap-3">
-                                    <FileText className="h-5 w-5 text-muted-foreground" />
-                                    <span className="font-medium">{report}</span>
+                                    <FileText className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                                    <span className="font-medium break-all">{report}</span>
                                 </div>
-                                <Button variant="ghost" size="icon">
+                                <Button variant="ghost" size="icon" className="flex-shrink-0">
                                     <Download className="h-5 w-5" />
                                 </Button>
                             </div>

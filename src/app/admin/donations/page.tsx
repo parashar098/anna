@@ -39,10 +39,10 @@ export default function DonationsPage() {
                             <CardTitle>All Donations</CardTitle>
                             <CardDescription>View, track, and manage all food donations.</CardDescription>
                         </div>
-                        <div className="flex gap-2 w-full md:w-auto">
+                        <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
                             <Input placeholder="Search by donor or type..." className="w-full md:w-64"/>
                             <Select>
-                                <SelectTrigger className="w-[180px]">
+                                <SelectTrigger className="w-full sm:w-[180px]">
                                     <SelectValue placeholder="Filter by status" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -57,47 +57,49 @@ export default function DonationsPage() {
                     </div>
                 </CardHeader>
                 <CardContent>
-                     <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead>Donation ID</TableHead>
-                                <TableHead>Donor</TableHead>
-                                <TableHead>Food Type</TableHead>
-                                <TableHead>Quantity</TableHead>
-                                <TableHead>Date</TableHead>
-                                <TableHead>Status</TableHead>
-                                <TableHead className="text-right">Actions</TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {donations.map(donation => (
-                                <TableRow key={donation.id}>
-                                    <TableCell className="font-medium">{donation.id}</TableCell>
-                                    <TableCell>{donation.donor}</TableCell>
-                                    <TableCell>{donation.type}</TableCell>
-                                    <TableCell>{donation.quantity}</TableCell>
-                                    <TableCell>{donation.date}</TableCell>
-                                    <TableCell>
-                                      <Badge variant={statusVariant[donation.status]} className={donation.status === 'Delivered' ? 'bg-primary/20 text-primary-foreground' : ''}>
-                                        {donation.status}
-                                      </Badge>
-                                    </TableCell>
-                                    <TableCell className="text-right">
-                                        <DropdownMenu>
-                                            <DropdownMenuTrigger asChild>
-                                                <Button variant="ghost" size="icon"><MoreHorizontal className="h-4 w-4" /></Button>
-                                            </DropdownMenuTrigger>
-                                            <DropdownMenuContent align="end">
-                                                <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                                                <DropdownMenuItem><Eye className="mr-2 h-4 w-4"/>View Details</DropdownMenuItem>
-                                                <DropdownMenuItem><Truck className="mr-2 h-4 w-4"/>Track Shipment</DropdownMenuItem>
-                                            </DropdownMenuContent>
-                                        </DropdownMenu>
-                                    </TableCell>
+                     <div className="overflow-x-auto">
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead>Donation ID</TableHead>
+                                    <TableHead>Donor</TableHead>
+                                    <TableHead>Food Type</TableHead>
+                                    <TableHead>Quantity</TableHead>
+                                    <TableHead>Date</TableHead>
+                                    <TableHead>Status</TableHead>
+                                    <TableHead className="text-right">Actions</TableHead>
                                 </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
+                            </TableHeader>
+                            <TableBody>
+                                {donations.map(donation => (
+                                    <TableRow key={donation.id}>
+                                        <TableCell className="font-medium">{donation.id}</TableCell>
+                                        <TableCell>{donation.donor}</TableCell>
+                                        <TableCell>{donation.type}</TableCell>
+                                        <TableCell>{donation.quantity}</TableCell>
+                                        <TableCell>{donation.date}</TableCell>
+                                        <TableCell>
+                                        <Badge variant={statusVariant[donation.status]} className={donation.status === 'Delivered' ? 'bg-primary/20 text-primary-foreground' : ''}>
+                                            {donation.status}
+                                        </Badge>
+                                        </TableCell>
+                                        <TableCell className="text-right">
+                                            <DropdownMenu>
+                                                <DropdownMenuTrigger asChild>
+                                                    <Button variant="ghost" size="icon"><MoreHorizontal className="h-4 w-4" /></Button>
+                                                </DropdownMenuTrigger>
+                                                <DropdownMenuContent align="end">
+                                                    <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                                                    <DropdownMenuItem><Eye className="mr-2 h-4 w-4"/>View Details</DropdownMenuItem>
+                                                    <DropdownMenuItem><Truck className="mr-2 h-4 w-4"/>Track Shipment</DropdownMenuItem>
+                                                </DropdownMenuContent>
+                                            </DropdownMenu>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
                 </CardContent>
             </Card>
         </div>

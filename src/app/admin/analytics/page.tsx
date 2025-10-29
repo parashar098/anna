@@ -62,16 +62,18 @@ export default function AnalyticsPage() {
                     </CardHeader>
                     <CardContent>
                         <ChartContainer config={chartConfig} className="h-80 w-full">
-                            <LineChart data={monthlyDonations}>
-                                <CartesianGrid vertical={false} />
-                                <XAxis dataKey="month" tickLine={false} axisLine={false} />
-                                <YAxis yAxisId="left" orientation="left" stroke="hsl(var(--chart-1))" tickLine={false} axisLine={false} />
-                                <YAxis yAxisId="right" orientation="right" stroke="hsl(var(--chart-2))" tickLine={false} axisLine={false} />
-                                <Tooltip content={<ChartTooltipContent />} />
-                                <Legend />
-                                <Line yAxisId="left" type="monotone" dataKey="donations" stroke="hsl(var(--chart-1))" strokeWidth={2} />
-                                <Line yAxisId="right" type="monotone" dataKey="volunteers" stroke="hsl(var(--chart-2))" strokeWidth={2} />
-                            </LineChart>
+                            <ResponsiveContainer width="100%" height="100%">
+                                <LineChart data={monthlyDonations}>
+                                    <CartesianGrid vertical={false} />
+                                    <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
+                                    <YAxis yAxisId="left" orientation="left" stroke="hsl(var(--chart-1))" tickLine={false} axisLine={false} tickMargin={8} />
+                                    <YAxis yAxisId="right" orientation="right" stroke="hsl(var(--chart-2))" tickLine={false} axisLine={false} tickMargin={8} />
+                                    <Tooltip content={<ChartTooltipContent indicator="dot" />} />
+                                    <Legend />
+                                    <Line yAxisId="left" type="monotone" dataKey="donations" stroke="hsl(var(--chart-1))" strokeWidth={2} dot={false} />
+                                    <Line yAxisId="right" type="monotone" dataKey="volunteers" stroke="hsl(var(--chart-2))" strokeWidth={2} dot={false} />
+                                </LineChart>
+                            </ResponsiveContainer>
                         </ChartContainer>
                     </CardContent>
                 </Card>
@@ -84,12 +86,21 @@ export default function AnalyticsPage() {
                         <ChartContainer config={{}} className="h-80 w-full">
                            <ResponsiveContainer width="100%" height="100%">
                                 <PieChart>
-                                    <Pie data={foodTypeData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={80} label>
+                                    <Tooltip content={<ChartTooltipContent />} />
+                                    <Pie data={foodTypeData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} labelLine={false} label={({cy, midAngle, innerRadius, outerRadius, percent, index}) => {
+                                        const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+                                        const x = cy + radius * Math.cos(-midAngle * (Math.PI / 180));
+                                        const y = cy + radius * Math.sin(-midAngle * (Math.PI / 180));
+                                        return (
+                                            <text x={x} y={y} fill="white" textAnchor={x > cy ? 'start' : 'end'} dominantBaseline="central">
+                                            {`${(percent * 100).toFixed(0)}%`}
+                                            </text>
+                                        );
+                                    }}>
                                         {foodTypeData.map((entry, index) => (
                                             <Cell key={`cell-${index}`} fill={entry.fill} />
                                         ))}
                                     </Pie>
-                                    <Tooltip content={<ChartTooltipContent />} />
                                      <Legend />
                                 </PieChart>
                             </ResponsiveContainer>
@@ -103,7 +114,7 @@ export default function AnalyticsPage() {
                     <CardTitle>Donation Hotspots</CardTitle>
                     <CardDescription>Live map of donation activities across the city.</CardDescription>
                 </CardHeader>
-                <CardContent className="h-96 p-0 overflow-hidden">
+                <CardContent className="aspect-video h-auto p-0 overflow-hidden">
                     <MapView />
                 </CardContent>
             </Card>

@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal, UserCheck, UserX, Eye, Trash2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
@@ -40,10 +40,10 @@ export default function UsersPage() {
                             <CardTitle>All Users</CardTitle>
                             <CardDescription>Manage all registered donors, volunteers, and NGOs.</CardDescription>
                         </div>
-                        <div className="flex gap-2 w-full md:w-auto">
+                        <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
                             <Input placeholder="Search by name or email..." className="w-full md:w-64"/>
                             <Select>
-                                <SelectTrigger className="w-[180px]">
+                                <SelectTrigger className="w-full sm:w-[180px]">
                                     <SelectValue placeholder="Filter by role" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -57,52 +57,57 @@ export default function UsersPage() {
                     </div>
                 </CardHeader>
                 <CardContent>
-                     <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead>User</TableHead>
-                                <TableHead>Role</TableHead>
-                                <TableHead>Email</TableHead>
-                                <TableHead>Status</TableHead>
-                                <TableHead className="text-right">Actions</TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {users.map(user => (
-                                <TableRow key={user.id}>
-                                    <TableCell className="font-medium">
-                                        <div className="flex items-center gap-3">
-                                            <Avatar>
-                                                <AvatarImage src={user.avatar} />
-                                                <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
-                                            </Avatar>
-                                            {user.name}
-                                        </div>
-                                    </TableCell>
-                                    <TableCell>{user.role}</TableCell>
-                                    <TableCell>{user.email}</TableCell>
-                                    <TableCell>
-                                      <Badge variant={statusVariant[user.status]} className={user.status === 'Active' || user.status === 'Approved' ? 'bg-primary/20 text-primary-foreground' : ''}>
-                                        {user.status}
-                                      </Badge>
-                                    </TableCell>
-                                    <TableCell className="text-right">
-                                        <DropdownMenu>
-                                            <DropdownMenuTrigger asChild><Button variant="ghost" size="icon"><MoreHorizontal className="h-4 w-4" /></Button></DropdownMenuTrigger>
-                                            <DropdownMenuContent align="end">
-                                                <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                                                <DropdownMenuItem><Eye className="mr-2 h-4 w-4"/>View Profile</DropdownMenuItem>
-                                                <DropdownMenuItem><UserCheck className="mr-2 h-4 w-4"/>Approve User</DropdownMenuItem>
-                                                <DropdownMenuItem><UserX className="mr-2 h-4 w-4"/>Block User</DropdownMenuItem>
-                                                <DropdownMenuSeparator />
-                                                <DropdownMenuItem className="text-destructive"><Trash2 className="mr-2 h-4 w-4"/>Delete User</DropdownMenuItem>
-                                            </DropdownMenuContent>
-                                        </DropdownMenu>
-                                    </TableCell>
+                     <div className="overflow-x-auto">
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead>User</TableHead>
+                                    <TableHead className="hidden sm:table-cell">Role</TableHead>
+                                    <TableHead className="hidden md:table-cell">Email</TableHead>
+                                    <TableHead>Status</TableHead>
+                                    <TableHead className="text-right">Actions</TableHead>
                                 </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
+                            </TableHeader>
+                            <TableBody>
+                                {users.map(user => (
+                                    <TableRow key={user.id}>
+                                        <TableCell className="font-medium">
+                                            <div className="flex items-center gap-3">
+                                                <Avatar>
+                                                    <AvatarImage src={user.avatar} />
+                                                    <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
+                                                </Avatar>
+                                                <div className="flex flex-col">
+                                                    <span>{user.name}</span>
+                                                    <span className="text-muted-foreground text-sm sm:hidden">{user.role}</span>
+                                                </div>
+                                            </div>
+                                        </TableCell>
+                                        <TableCell className="hidden sm:table-cell">{user.role}</TableCell>
+                                        <TableCell className="hidden md:table-cell">{user.email}</TableCell>
+                                        <TableCell>
+                                        <Badge variant={statusVariant[user.status]} className={user.status === 'Active' || user.status === 'Approved' ? 'bg-primary/20 text-primary-foreground' : ''}>
+                                            {user.status}
+                                        </Badge>
+                                        </TableCell>
+                                        <TableCell className="text-right">
+                                            <DropdownMenu>
+                                                <DropdownMenuTrigger asChild><Button variant="ghost" size="icon"><MoreHorizontal className="h-4 w-4" /></Button></DropdownMenuTrigger>
+                                                <DropdownMenuContent align="end">
+                                                    <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                                                    <DropdownMenuItem><Eye className="mr-2 h-4 w-4"/>View Profile</DropdownMenuItem>
+                                                    <DropdownMenuItem><UserCheck className="mr-2 h-4 w-4"/>Approve User</DropdownMenuItem>
+                                                    <DropdownMenuItem><UserX className="mr-2 h-4 w-4"/>Block User</DropdownMenuItem>
+                                                    <DropdownMenuSeparator />
+                                                    <DropdownMenuItem className="text-destructive"><Trash2 className="mr-2 h-4 w-4"/>Delete User</DropdownMenuItem>
+                                                </DropdownMenuContent>
+                                            </DropdownMenu>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                     </div>
                 </CardContent>
             </Card>
         </div>
