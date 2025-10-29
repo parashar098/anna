@@ -12,7 +12,6 @@ import { cn } from '@/lib/utils';
 
 const navLinks = [
   { href: '/about', label: 'About' },
-  { href: '/stories', label: 'Stories' },
   { href: '/donate', label: 'Donate Food' },
   { href: '/volunteer', label: 'Volunteer' },
   { href: '/ngo', label: 'NGO' },
