@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Logo } from '@/components/icons';
 import { Github, Twitter, Linkedin } from 'lucide-react';
@@ -5,6 +6,7 @@ import { Github, Twitter, Linkedin } from 'lucide-react';
 export function Footer() {
   const quickLinks = [
     { name: 'About Us', href: '/about' },
+    { name: 'Stories', href: '/stories' },
     { name: 'Donate', href: '/donate' },
     { name: 'Volunteer', href: '/volunteer' },
     { name: 'NGO', href: '/ngo' },

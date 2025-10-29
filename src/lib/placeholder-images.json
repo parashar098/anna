@@ -25,6 +25,12 @@
       "imageHint": "children eating"
     },
     {
+      "id": "story-hero",
+      "description": "Volunteers serving food to a line of people.",
+      "imageUrl": "https://images.unsplash.com/photo-1518398046578-82877a4e30da?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmb29kJTIwZG9uYXRpb258ZW58MHx8fHwxNzYxNzI5ODU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "food donation"
+    },
+    {
       "id": "team-1",
       "description": "Headshot of a smiling person, Team Member 1.",
       "imageUrl": "https://images.unsplash.com/photo-1535643302794-19c3804b874b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVyc29uJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzYxNjY1NzgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
