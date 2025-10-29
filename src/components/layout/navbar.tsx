@@ -48,9 +48,11 @@ export function Navbar() {
         </div>
 
         <div className="flex flex-1 items-center justify-end space-x-2">
-          <Button variant="ghost" size="icon" className="hidden md:inline-flex rounded-full">
-            <Bell className="h-5 w-5" />
-            <span className="sr-only">Notifications</span>
+          <Button asChild variant="ghost" size="icon" className="hidden md:inline-flex rounded-full">
+            <Link href="/notifications">
+              <Bell className="h-5 w-5" />
+              <span className="sr-only">Notifications</span>
+            </Link>
           </Button>
           <Button asChild className="hidden md:inline-flex rounded-full" variant="ghost">
             <Link href="/login">Login</Link>
@@ -94,6 +96,17 @@ export function Navbar() {
                         </Link>
                       </SheetClose>
                     ))}
+                     <SheetClose asChild>
+                        <Link
+                          href="/notifications"
+                           className={cn(
+                            'text-lg font-medium transition-colors hover:text-foreground/80',
+                             pathname === '/notifications' ? 'text-foreground' : 'text-foreground/60'
+                          )}
+                        >
+                          Notifications
+                        </Link>
+                      </SheetClose>
                   </nav>
                   <div className="mt-auto p-4 border-t flex flex-col gap-2">
                     <SheetClose asChild>
