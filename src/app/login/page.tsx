@@ -34,7 +34,6 @@ export default function LoginPage() {
                   <SelectItem value="donor">Donor</SelectItem>
                   <SelectItem value="volunteer">Volunteer</SelectItem>
                   <SelectItem value="ngo">NGO</SelectItem>
-                  <SelectItem value="admin">Admin</SelectItem>
                 </SelectContent>
               </Select>
             </div>
