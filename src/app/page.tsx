@@ -59,6 +59,7 @@ const whyChooseUsPoints = [
 ]
 
 const mapImage = PlaceHolderImages.find(p => p.id === 'contact-map');
+const heroImage = PlaceHolderImages.find(p => p.id === 'hero-bg');
 
 export default function Home() {
   const latestPosts = blogPosts.slice(0, 3);
@@ -67,14 +68,16 @@ export default function Home() {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white overflow-hidden">
-          <video
-            src="https://videos.pexels.com/video-files/7578298/7578298-hd_1920_1080_25fps.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-          />
+          {heroImage && (
+            <Image
+              src={heroImage.imageUrl}
+              alt={heroImage.description}
+              fill
+              className="object-cover -z-10"
+              priority
+              data-ai-hint={heroImage.imageHint}
+            />
+          )}
           <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 flex flex-col items-center gap-6 p-4">
             <h1 className="text-4xl md:text-6xl font-bold font-headline tracking-tight drop-shadow-lg">
