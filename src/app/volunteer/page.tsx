@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis, ResponsiveContainer, Cell } from 'recharts';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { Badge } from '@/components/ui/badge';
 import MapView from '@/components/map-view';
@@ -18,11 +18,11 @@ const donations = [
 ];
 
 const topVolunteersData = [
-  { name: 'Alice', pickups: 32, color: "hsl(var(--chart-1))" },
-  { name: 'Bob', pickups: 28, color: "hsl(var(--chart-2))" },
-  { name: 'Charlie', pickups: 25, color: "hsl(var(--chart-1))" },
-  { name: 'Diana', pickups: 21, color: "hsl(var(--chart-2))" },
-  { name: 'Eve', pickups: 18, color: "hsl(var(--chart-1))" },
+  { name: 'Alice', pickups: 32, fill: 'hsl(var(--chart-1))' },
+  { name: 'Bob', pickups: 28, fill: 'hsl(var(--chart-2))' },
+  { name: 'Charlie', pickups: 25, fill: 'hsl(var(--chart-1))' },
+  { name: 'Diana', pickups: 21, fill: 'hsl(var(--chart-2))' },
+  { name: 'Eve', pickups: 18, fill: 'hsl(var(--chart-1))' },
 ];
 
 const chartConfig = {
@@ -122,7 +122,11 @@ export default function VolunteerPage() {
                                             <XAxis type="number" hide />
                                             <YAxis dataKey="name" type="category" tickLine={false} axisLine={false} />
                                             <ChartTooltip content={<ChartTooltipContent />} />
-                                            <Bar dataKey="pickups" layout="vertical" radius={5} fill="var(--color-pickups)" />
+                                            <Bar dataKey="pickups" layout="vertical" radius={5}>
+                                                {topVolunteersData.map((entry, index) => (
+                                                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                                                ))}
+                                            </Bar>
                                         </BarChart>
                                     </ResponsiveContainer>
                                 </ChartContainer>
