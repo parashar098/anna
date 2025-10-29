@@ -2,10 +2,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { HandHelping, Heart, Users, Truck, Leaf, ShieldCheck, Map } from 'lucide-react';
+import { HandHelping, Heart, Users, Truck, Leaf, ShieldCheck, Map, ArrowRight } from 'lucide-react';
 import { Footer } from '@/components/layout/footer';
+import { blogPosts } from '@/app/blog/data';
 
 const partnerImages = [
   PlaceHolderImages.find(p => p.id === 'partner-1'),
@@ -57,6 +58,7 @@ const whyChooseUsPoints = [
 ]
 
 export default function Home() {
+  const latestPosts = blogPosts.slice(0, 3);
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow">
@@ -146,6 +148,59 @@ export default function Home() {
                     ))}
                 </div>
             </div>
+        </section>
+
+        {/* Blog Section */}
+        <section className="py-16 md:py-24 bg-secondary/50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 font-headline">
+              From the Blog
+            </h2>
+            <p className="text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+              Stay updated with our latest news, impact stories, and articles on sustainability and food waste reduction.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {latestPosts.map((post) => {
+                const image = PlaceHolderImages.find(p => p.id === post.image);
+                return (
+                  <Card key={post.slug} className="overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 rounded-2xl flex flex-col">
+                    {image && (
+                       <Link href={`/blog/${post.slug}`}>
+                        <Image
+                          src={image.imageUrl}
+                          alt={post.title}
+                          width={400}
+                          height={250}
+                          className="w-full h-48 object-cover"
+                           data-ai-hint={image.imageHint}
+                        />
+                      </Link>
+                    )}
+                    <CardHeader>
+                      <CardTitle className="text-xl font-headline">
+                         <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <p className="text-muted-foreground line-clamp-3">{post.excerpt}</p>
+                    </CardContent>
+                    <div className="p-6 pt-0">
+                       <Button asChild variant="link" className="p-0 h-auto text-primary">
+                        <Link href={`/blog/${post.slug}`}>
+                          Read More <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </Card>
+                );
+              })}
+            </div>
+            <div className="text-center mt-12">
+              <Button asChild size="lg" className="rounded-full">
+                <Link href="/blog">Read All Articles</Link>
+              </Button>
+            </div>
+          </div>
         </section>
 
         {/* Volunteer CTA */}

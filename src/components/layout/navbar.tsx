@@ -15,6 +15,7 @@ const navLinks = [
   { href: '/donate', label: 'Donate Food' },
   { href: '/volunteer', label: 'Volunteer' },
   { href: '/ngo', label: 'NGO' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -37,7 +38,7 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   'transition-colors hover:text-foreground/80',
-                  pathname === link.href ? 'text-foreground' : 'text-foreground/60'
+                  pathname.startsWith(link.href) ? 'text-foreground' : 'text-foreground/60'
                 )}
               >
                 {link.label}
@@ -88,7 +89,7 @@ export function Navbar() {
                           href={link.href}
                            className={cn(
                             'text-lg font-medium transition-colors hover:text-foreground/80',
-                             pathname === link.href ? 'text-foreground' : 'text-foreground/60'
+                             pathname.startsWith(link.href) ? 'text-foreground' : 'text-foreground/60'
                           )}
                         >
                           {link.label}

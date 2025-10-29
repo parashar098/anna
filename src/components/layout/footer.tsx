@@ -9,6 +9,7 @@ export function Footer() {
     { name: 'Donate', href: '/donate' },
     { name: 'Volunteer', href: '/volunteer' },
     { name: 'NGO', href: '/ngo' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ];
 

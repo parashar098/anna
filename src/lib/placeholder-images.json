@@ -83,6 +83,24 @@
       "description": "A generic map view of a city with pins.",
       "imageUrl": "https://images.unsplash.com/photo-1619468129361-605ebea04b44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjaXR5JTIwbWFwfGVufDB8fHx8MTc2MTcxMTY2Nnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "city map"
+    },
+    {
+      "id": "blog-1",
+      "description": "A community fridge filled with food donations.",
+      "imageUrl": "https://images.unsplash.com/photo-1736390718073-76ea3393258d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb21tdW5pdHklMjBmcmlkZ2V8ZW58MHx8fHwxNzYxNzMxOTg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "community fridge"
+    },
+    {
+      "id": "blog-2",
+      "description": "A volunteer smiling while holding a box of donations.",
+      "imageUrl": "https://images.unsplash.com/photo-1758599667718-684569efe224?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aGFwcHklMjB2b2x1bnRlZXJ8ZW58MHx8fHwxNzYxNzMxOTg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy volunteer"
+    },
+    {
+      "id": "blog-3",
+      "description": "Fresh produce from a local farm.",
+      "imageUrl": "https://images.unsplash.com/photo-1657288089316-c0350003ca49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmcmVzaCUyMHByb2R1Y2V8ZW58MHx8fHwxNzYxNzMxMjQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fresh produce"
     }
   ]
 }
