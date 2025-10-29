@@ -100,15 +100,15 @@ export default function AboutPage() {
       </section>
       
       {/* Partners Section */}
-      <section className="py-16 bg-secondary rounded-2xl">
+      <section className="py-16 bg-secondary/50 rounded-2xl">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-headline">
             Partners & Sponsors
           </h2>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
             {partnerImages.map((logo, index) =>
               logo ? (
-                <div key={index} className="grayscale hover:grayscale-0 transition-all duration-300">
+                <Card key={index} className="bg-card/80 p-6 flex items-center justify-center shadow-sm hover:shadow-lg transition-shadow">
                   <Image
                     src={logo.imageUrl}
                     alt={logo.description}
@@ -117,7 +117,7 @@ export default function AboutPage() {
                     className="object-contain"
                     data-ai-hint={logo.imageHint}
                   />
-                </div>
+                </Card>
               ) : null
             )}
           </div>
