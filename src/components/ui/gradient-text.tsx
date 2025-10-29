@@ -1,7 +1,5 @@
 "use client";
 
-import './../app/gradient-text.css';
-
 type GradientTextProps = {
     children: React.ReactNode;
     className?: string;
