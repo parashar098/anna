@@ -21,8 +21,7 @@ const locations = [
   { lat: 19.0720, lng: 72.8827 },
 ];
 
-// Using an empty string for the API key for demo purposes
-const apiKey = '';
+const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
 export default function MapView() {
     const { isLoaded, loadError } = useJsApiLoader({
@@ -30,14 +29,14 @@ export default function MapView() {
         googleMapsApiKey: apiKey,
     });
 
-    if (loadError) {
+    if (loadError || !apiKey) {
         return (
           <div className="w-full h-full bg-muted flex items-center justify-center p-4">
             <Alert variant="destructive" className="max-w-md">
               <MapPin className="h-4 w-4" />
               <AlertTitle>Map Loading Error</AlertTitle>
               <AlertDescription>
-                There was an error loading the map. For full functionality, ensure a valid Google Maps API key is provided.
+                There was an error loading the map. For full functionality, ensure a valid Google Maps API key is provided in the .env file.
               </AlertDescription>
             </Alert>
           </div>
