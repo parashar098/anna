@@ -47,6 +47,7 @@ export default function DonateFoodPage() {
             foodType: "",
             quantity: "",
             pickupAddress: "",
+            image: undefined,
         },
     });
 
@@ -192,7 +193,7 @@ export default function DonateFoodPage() {
                                 <p className="mt-2 text-sm text-muted-foreground">
                                   <span className="font-semibold text-primary">Click to upload</span> or drag and drop
                                 </p>
-                                <Input type="file" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" {...field} />
+                                <Input type="file" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onChange={(e) => field.onChange(e.target.files)} />
                               </div>
                             </FormControl>
                             <FormMessage />
