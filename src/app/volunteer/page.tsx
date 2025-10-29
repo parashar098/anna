@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import MapView from '@/components/map-view';
 import { MapPin, Route, Star } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import GradientText from '@/components/ui/gradient-text';
 
 
 const donations = [
@@ -47,7 +48,9 @@ export default function VolunteerPage() {
                 <div className="lg:col-span-2 space-y-12">
                     {/* Active Donations */}
                     <section>
-                        <h1 className="text-3xl md:text-4xl font-bold font-headline mb-8">Active Donations</h1>
+                        <h1 className="text-3xl md:text-4xl font-bold font-headline mb-8">
+                          <GradientText>Active Donations</GradientText>
+                        </h1>
                         <div className="space-y-6">
                             {donations.map(donation => (
                                 <Card key={donation.id} className="shadow-md rounded-2xl hover:shadow-lg transition-shadow">
@@ -75,7 +78,9 @@ export default function VolunteerPage() {
 
                     {/* Map Preview */}
                      <section>
-                        <h2 className="text-2xl md:text-3xl font-bold font-headline mb-6">Live Donation Map</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold font-headline mb-6">
+                          <GradientText>Live Donation Map</GradientText>
+                        </h2>
                         <Card className="h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg">
                            <MapView />
                         </Card>
@@ -87,7 +92,9 @@ export default function VolunteerPage() {
                     <section>
                          <Card className="shadow-lg rounded-2xl">
                             <CardHeader>
-                                <CardTitle className="font-headline text-2xl">Become a Volunteer</CardTitle>
+                                <CardTitle className="font-headline text-2xl">
+                                  <GradientText>Become a Volunteer</GradientText>
+                                </CardTitle>
                                 <CardDescription>Join our team and start making a difference today.</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4">
@@ -110,7 +117,7 @@ export default function VolunteerPage() {
                              <CardHeader>
                                 <CardTitle className="font-headline text-2xl flex items-center gap-2">
                                     <Star className="text-accent" />
-                                    Top Volunteers
+                                    <GradientText>Top Volunteers</GradientText>
                                 </CardTitle>
                                 <CardDescription>This month's pickup leaders.</CardDescription>
                             </CardHeader>

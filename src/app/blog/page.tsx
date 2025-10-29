@@ -6,12 +6,15 @@ import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { blogPosts } from './data';
 import { ArrowRight } from 'lucide-react';
+import GradientText from '@/components/ui/gradient-text';
 
 export default function BlogPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
       <header className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">AnnaSewa Blog</h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">
+          <GradientText>AnnaSewa Blog</GradientText>
+        </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
           Insights, stories, and updates from our community. Learn more about our mission to fight hunger and reduce food waste.
         </p>

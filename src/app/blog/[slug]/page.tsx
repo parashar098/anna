@@ -5,6 +5,7 @@ import { blogPosts, BlogPost } from '../data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Calendar, User } from 'lucide-react';
+import GradientText from '@/components/ui/gradient-text';
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({
@@ -25,7 +26,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   return (
     <article className="container mx-auto px-4 py-12 md:py-20 max-w-4xl">
       <header className="mb-12 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">{post.title}</h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">
+          <GradientText>{post.title}</GradientText>
+        </h1>
         <div className="flex justify-center items-center gap-6 text-muted-foreground text-sm">
           <div className="flex items-center gap-2">
             <Avatar className="h-8 w-8">

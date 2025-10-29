@@ -8,6 +8,7 @@ import { HandHelping, Heart, Users, Truck, Leaf, ShieldCheck, Map, ArrowRight, M
 import { Footer } from '@/components/layout/footer';
 import { blogPosts } from '@/app/blog/data';
 import { ContactForm } from './contact/_components/contact-form';
+import GradientText from '@/components/ui/gradient-text';
 
 const partnerImages = [
   PlaceHolderImages.find(p => p.id === 'partner-1'),
@@ -81,7 +82,9 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/50" />
           <div className="relative z-10 flex flex-col items-center gap-6 p-4">
             <h1 className="text-4xl md:text-6xl font-bold font-headline tracking-tight drop-shadow-lg">
-              Serve Food, Save Lives, Spread Happiness 🍱
+              <GradientText>
+                Serve Food, Save Lives, Spread Happiness 🍱
+              </GradientText>
             </h1>
             <p className="max-w-2xl text-lg md:text-xl text-gray-200">
               Connecting donors, volunteers, and NGOs to eliminate hunger.
@@ -123,7 +126,9 @@ export default function Home() {
         {/* How It Works Section */}
         <section className="py-16 md:py-24 bg-secondary/50">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-headline">How It Works</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-headline">
+                  <GradientText>How It Works</GradientText>
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {howItWorksSteps.map((step, index) => (
                         <div key={index} className="flex flex-col items-center text-center">
@@ -141,7 +146,9 @@ export default function Home() {
         {/* Why Choose AnnaSewa */}
         <section className="py-16 md:py-24 bg-background">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-headline">Why Choose AnnaSewa</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-headline">
+                  <GradientText>Why Choose AnnaSewa</GradientText>
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {whyChooseUsPoints.map((point, index) => (
                         <Card key={index} className="p-8 text-center flex flex-col items-center shadow-md hover:shadow-xl transition-shadow rounded-2xl">
@@ -160,7 +167,7 @@ export default function Home() {
         <section className="py-16 md:py-24 bg-secondary/50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 font-headline">
-              From the Blog
+              <GradientText>From the Blog</GradientText>
             </h2>
             <p className="text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
               Stay updated with our latest news, impact stories, and articles on sustainability and food waste reduction.
@@ -213,7 +220,7 @@ export default function Home() {
         <section className="py-20 md:py-32 bg-primary/10">
             <div className="container mx-auto px-4 text-center">
                  <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4">
-                    Be the reason someone smiles today.
+                  <GradientText>Be the reason someone smiles today.</GradientText>
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                     Join 1,500+ volunteers helping end hunger one meal at a time. Your time and effort can make a world of difference.
@@ -228,7 +235,7 @@ export default function Home() {
         <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-headline">
-              Our Partners & Sponsors
+              <GradientText>Our Partners & Sponsors</GradientText>
             </h2>
              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
               {partnerImages.map((logo, index) =>
@@ -253,7 +260,9 @@ export default function Home() {
         <section className="py-16 md:py-24 bg-secondary/50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold font-headline mb-4">Get In Touch</h2>
+              <h2 className="text-4xl md:text-5xl font-bold font-headline mb-4">
+                <GradientText>Get In Touch</GradientText>
+              </h2>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
                 Have questions or want to partner with us? We'd love to hear from you.
               </p>

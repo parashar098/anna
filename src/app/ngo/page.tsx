@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { CheckCircle, Truck, MapPin } from 'lucide-react';
 import MapView from '@/components/map-view';
 import { useToast } from '@/hooks/use-toast';
+import GradientText from '@/components/ui/gradient-text';
 
 const nearbyDonations = [
   { id: 1, type: 'Groceries', from: 'City Supermarket', status: 'Available' },
@@ -47,7 +48,9 @@ export default function NGOPage() {
                 <div className="lg:col-span-3 space-y-12">
                     {/* Nearby Donations Map */}
                     <section>
-                        <h1 className="text-3xl md:text-4xl font-bold font-headline mb-6">Nearby Donations</h1>
+                        <h1 className="text-3xl md:text-4xl font-bold font-headline mb-6">
+                          <GradientText>Nearby Donations</GradientText>
+                        </h1>
                          <Card className="h-[400px] rounded-2xl overflow-hidden shadow-lg">
                            <MapView />
                         </Card>
@@ -55,7 +58,9 @@ export default function NGOPage() {
 
                     {/* Delivery History */}
                     <section>
-                         <h2 className="text-2xl md:text-3xl font-bold font-headline mb-6">Delivery History</h2>
+                         <h2 className="text-2xl md:text-3xl font-bold font-headline mb-6">
+                          <GradientText>Delivery History</GradientText>
+                         </h2>
                         <Card className="shadow-md rounded-2xl">
                             <CardContent className="p-0">
                                 <Table>
@@ -92,7 +97,9 @@ export default function NGOPage() {
                     <section>
                         <Card className="shadow-lg rounded-2xl">
                             <CardHeader>
-                                <CardTitle className="font-headline text-2xl">Register your NGO</CardTitle>
+                                <CardTitle className="font-headline text-2xl">
+                                  <GradientText>Register your NGO</GradientText>
+                                </CardTitle>
                                 <CardDescription>Join our network to receive food donations for your community.</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4">
@@ -117,7 +124,9 @@ export default function NGOPage() {
                     <section>
                         <Card className="shadow-lg rounded-2xl">
                             <CardHeader>
-                                <CardTitle className="font-headline text-2xl">Available Pickups</CardTitle>
+                                <CardTitle className="font-headline text-2xl">
+                                  <GradientText>Available Pickups</GradientText>
+                                </CardTitle>
                                 <CardDescription>Donations available in your area.</CardDescription>
                             </CardHeader>
                             <CardContent>

@@ -1,7 +1,9 @@
+
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ContactForm } from './_components/contact-form';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import GradientText from '@/components/ui/gradient-text';
 
 const mapImage = PlaceHolderImages.find(p => p.id === 'contact-map');
 
@@ -10,7 +12,9 @@ export default function ContactPage() {
     <div className="bg-background">
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">Get In Touch</h1>
+          <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">
+            <GradientText>Get In Touch</GradientText>
+          </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Have questions or want to partner with us? We'd love to hear from you. Use our intelligent support form for quick answers.
           </p>

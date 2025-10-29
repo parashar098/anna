@@ -25,6 +25,7 @@ import { format } from "date-fns"
 import { useToast } from "@/hooks/use-toast";
 import MapView from "@/components/map-view";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import GradientText from "@/components/ui/gradient-text";
 
 const formSchema = z.object({
   foodType: z.string().min(1, "Please select a food type."),
@@ -55,7 +56,6 @@ export default function DonateFoodPage() {
     toast({
       title: "Donation Registered!",
       description: "Your food donation has been successfully registered. A volunteer will be in touch shortly.",
-      variant: "default",
     });
     form.reset();
   }
@@ -63,7 +63,9 @@ export default function DonateFoodPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
       <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">Make a Donation</h1>
+          <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">
+            <GradientText>Make a Donation</GradientText>
+          </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Your contribution can make a huge difference. Thank you for helping us fight hunger.
           </p>
@@ -73,7 +75,9 @@ export default function DonateFoodPage() {
         <div className="space-y-8">
             <Card className="shadow-2xl rounded-2xl">
                 <CardHeader>
-                    <CardTitle className="text-3xl font-bold font-headline">Donation Form</CardTitle>
+                    <CardTitle className="text-3xl font-bold font-headline">
+                      <GradientText>Donation Form</GradientText>
+                    </CardTitle>
                     <CardDescription>Fill out the details below to schedule a food pickup.</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -219,7 +223,9 @@ export default function DonateFoodPage() {
                     data-ai-hint={storyImage.imageHint}
                 />
             )}
-            <h3 className="text-2xl font-semibold font-headline">How It Works</h3>
+            <h3 className="text-2xl font-semibold font-headline">
+              <GradientText>How It Works</GradientText>
+            </h3>
             <ol className="list-decimal list-inside space-y-4 text-muted-foreground">
                 <li><span className="font-semibold text-foreground">Fill the Form:</span> Provide details about the food you want to donate.</li>
                 <li><span className="font-semibold text-foreground">Schedule Pickup:</span> Set a convenient time and location for our volunteers.</li>

@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Award, Goal, Users } from 'lucide-react';
+import GradientText from '@/components/ui/gradient-text';
 
 const missionImage = PlaceHolderImages.find(p => p.id === 'about-mission');
 const teamImages = [
@@ -33,7 +34,9 @@ export default function AboutPage() {
     <div className="container mx-auto px-4 py-12 md:py-20">
       {/* Header */}
       <section className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">About AnnaSewa</h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-headline mb-4">
+          <GradientText>About AnnaSewa</GradientText>
+        </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
           Learn about our journey, our mission to combat food waste, and the dedicated team making it all happen.
         </p>
@@ -46,7 +49,9 @@ export default function AboutPage() {
             <div className="flex gap-4">
               <Goal className="h-10 w-10 text-primary flex-shrink-0" />
               <div>
-                <h2 className="text-2xl font-semibold font-headline mb-2">Our Mission</h2>
+                <h2 className="text-2xl font-semibold font-headline mb-2">
+                  <GradientText>Our Mission</GradientText>
+                </h2>
                 <p className="text-muted-foreground">
                   To create a seamless network connecting food donors, volunteers, and beneficiaries, ensuring that surplus food nourishes communities instead of ending up in landfills. We aim to leverage technology for social good, making food redistribution efficient, transparent, and impactful.
                 </p>
@@ -55,7 +60,9 @@ export default function AboutPage() {
             <div className="flex gap-4">
               <Award className="h-10 w-10 text-primary flex-shrink-0" />
               <div>
-                <h2 className="text-2xl font-semibold font-headline mb-2">Our Journey</h2>
+                <h2 className="text-2xl font-semibold font-headline mb-2">
+                  <GradientText>Our Journey</GradientText>
+                </h2>
                 <p className="text-muted-foreground">
                   Founded in 2022, AnnaSewa started as a small community project. Witnessing the dual problems of food waste and hunger, our founders were inspired to build a platform that could bridge this gap. Today, we've grown into a nationwide movement, saving thousands of meals every week.
                 </p>
@@ -79,10 +86,12 @@ export default function AboutPage() {
 
       {/* Team Section */}
       <section className="text-center mb-20">
-        <h2 className="text-3xl md:text-4xl font-bold font-headline mb-12">Meet Our Team</h2>
+        <h2 className="text-3xl md:text-4xl font-bold font-headline mb-12">
+          <GradientText>Meet Our Team</GradientText>
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map((member) => (
-            <Card key={member.name} className="overflow-hidden text-center transition-shadow hover:shadow-xl">
+            <Card key={member.name} className="overflow-hidden text-center transition-shadow hover:shadow-xl rounded-2xl">
               <CardContent className="p-6">
                 {member.image && (
                   <Image
@@ -106,7 +115,7 @@ export default function AboutPage() {
       <section className="py-16 bg-secondary/50 rounded-2xl">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-headline">
-            Partners & Sponsors
+            <GradientText>Partners & Sponsors</GradientText>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
             {partnerImages.map((logo, index) =>
@@ -129,7 +138,9 @@ export default function AboutPage() {
 
       {/* Join Us CTA */}
       <section className="text-center mt-20">
-        <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4">Ready to Make a Difference?</h2>
+        <h2 className="text-3xl md:text-4xl font-bold font-headline mb-4">
+          <GradientText>Ready to Make a Difference?</GradientText>
+        </h2>
         <p className="text-lg text-muted-foreground mb-8">
           Join our mission to fight hunger and food waste.
         </p>
